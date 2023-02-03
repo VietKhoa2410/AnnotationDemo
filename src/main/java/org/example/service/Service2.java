@@ -1,10 +1,10 @@
 package org.example.service;
 
-import org.example.annotation.MyComponent;
+import org.springframework.stereotype.Component;
 
-@MyComponent(clazz = Service2.class)
+@Component
 public class Service2 {
-  public void start(){
-    System.out.println("This is service 2");
+  public String start(){
+    return "This is service 2";
   }
 }

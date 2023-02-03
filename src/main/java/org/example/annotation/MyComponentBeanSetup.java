@@ -25,6 +25,7 @@ public class MyComponentBeanSetup {
     ClassPathScanningCandidateComponentProvider provider =
         new ClassPathScanningCandidateComponentProvider(false);
     provider.addIncludeFilter(new AnnotationTypeFilter(MyComponent.class));
+    provider.addIncludeFilter(new AnnotationTypeFilter(MyComponent.class));
     // Define source folder to scan
     Set<BeanDefinition> beanDefs = provider
         .findCandidateComponents("org.example");
@@ -39,11 +40,7 @@ public class MyComponentBeanSetup {
         applicationContext.registerBean(clazz, () -> {
           try {
             return c.newInstance();
-          } catch (InstantiationException e) {
-            throw new RuntimeException(e);
-          } catch (IllegalAccessException e) {
-            throw new RuntimeException(e);
-          } catch (InvocationTargetException e) {
+          } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
           }
         });

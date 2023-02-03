@@ -1,5 +1,6 @@
 package org.example.schedule;
 
+import lombok.NonNull;
 import org.springframework.scheduling.annotation.Scheduled;
 
 public class TestSchedule {
