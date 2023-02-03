@@ -1,3 +1,4 @@
+import lombok.NonNull;
 import lombok.extern.log4j.Log4j2;
 import org.example.annotation.retention.ClassAnnotation;
 import org.example.annotation.retention.RuntimeAnnotation;
@@ -15,5 +16,14 @@ public class DemoTest {
     log.info("Class annotation: {}", classAnnotation);
     RuntimeAnnotation runtimeAnnotation = Customer.class.getAnnotation(RuntimeAnnotation.class);
     log.info("Runtime annotation: {}", runtimeAnnotation);
+  }
+
+  @Test
+  void nonNullTest() {
+    @NonNull String name = null;
+
+    @NonNull Integer age = null;
+
+    age = 20;
   }
 }

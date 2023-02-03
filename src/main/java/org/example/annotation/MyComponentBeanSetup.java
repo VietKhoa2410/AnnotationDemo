@@ -21,10 +21,11 @@ public class MyComponentBeanSetup {
   public void createBean()
       throws NoSuchMethodException {
 
-    // Get all BeanDefinition
+    // Get all BeanDefinition using @MyComponent
     ClassPathScanningCandidateComponentProvider provider =
         new ClassPathScanningCandidateComponentProvider(false);
     provider.addIncludeFilter(new AnnotationTypeFilter(MyComponent.class));
+    // Define source folder to scan
     Set<BeanDefinition> beanDefs = provider
         .findCandidateComponents("org.example");
 
